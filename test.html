@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Маленькие шаги — Делай наоборот!</title>
+  <style>
+    :root {
+      --bg: #f8f5ed;
+      --card: #fffdf8;
+      --green: #668873;
+      --dark: #354b3d;
+      --pink: #e9c6c0;
+      --text: #39483d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px 14px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: auto;
+    }
+
+    header {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 24px;
+    }
+
+    .brand {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(30px, 6vw, 44px);
+      margin: 12px 0;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #e8e2d6;
+      border-radius: 20px;
+      padding: 22px;
+      margin-top: 18px;
+    }
+
+    h2 {
+      color: var(--dark);
+      margin-top: 0;
+    }
+
+    .game {
+      text-align: center;
+      padding: 28px 18px;
+      border: 2px dashed #b9cbbb;
+    }
+
+    .emoji {
+      font-size: 64px;
+      margin: 12px 0;
+    }
+
+    .task {
+      font-size: clamp(24px, 5vw, 34px);
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    .hint {
+      background: #f5eee5;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 16px 0;
+    }
+
+    button {
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 18px;
+      margin: 5px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: var(--dark);
+    }
+
+    .secondary {
+      background: var(--pink);
+      color: #493c39;
+    }
+
+    .small {
+      color: #68766c;
+      font-size: 14px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 24px;
+      color: #68766c;
+      font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <header>
+      <div class="brand">Маленькие шаги</div>
+      <h1>🌿 Делай наоборот!</h1>
+      <p class="subtitle">
+        Игра на внимание, переключение правил
+        и самоконтроль
+      </p>
+    </header>
+
+    <section class="card">
+      <h2>🎲 Как играть?</h2>
+      <ol>
+        <li>Взрослый читает задание ребёнку.</li>
+        <li>Ребёнок должен выполнить действие наоборот.</li>
+        <li>После ответа переходите к следующему заданию.</li>
+        <li>Если сложно, спокойно напомните правило.</li>
+      </ol>
+      <p class="small">
+        Возраст: примерно 4–6 лет. Продолжительность: 5–7 минут.
+      </p>
+    </section>
+
+    <section class="card game">
+      <div class="small" id="counter">Задание 1</div>
+
+      <div class="emoji" id="emoji">🙌</div>
+
+      <div class="task" id="task">
+        Подними руки!
+      </div>
+
+      <div class="hint" id="hint">
+        Наоборот: опусти руки.
+      </div>
+
+      <button id="next">Следующее задание →</button>
+
+      <button class="secondary" id="toggle">
+        Скрыть подсказку
+      </button>
+    </section>
+
+    <section class="card">
+      <h2>💡 Как изменить сложность?</h2>
+
+      <p>
+        <strong>Если ребёнку сложно:</strong>
+        показывайте движения одновременно со словами
+        и начинайте с самых простых заданий.
+      </p>
+
+      <p>
+        <strong>Если ребёнок легко справляется:</strong>
+        добавьте новое правило. Например, выполнять
+        действие наоборот только после хлопка.
+      </p>
+
+      <p class="small">
+        Это игровое упражнение, а не диагностика.
+        Не торопите ребёнка и делайте перерывы,
+        если он устал.
+      </p>
+    </section>
+
+    <footer>
+      Маленькие шаги 🌱 Игры и материалы для развития детей
+    </footer>
+
+  </main>
+
+  <script>
+    const tasks = [
+      {
+        emoji: "🙌",
+        task: "Подними руки!",
+        hint: "Опусти руки."
+      },
+      {
+        emoji: "🪑",
+        task: "Встань!",
+        hint: "Сядь."
+      },
+      {
+        emoji: "✊",
+        task: "Сожми кулачки!",
+        hint: "Раскрой ладони."
+      },
+      {
+        emoji: "⬆️",
+        task: "Посмотри вверх!",
+        hint: "Посмотри вниз."
+      },
+      {
+        emoji: "👏",
+        task: "Хлопни один раз!",
+        hint: "Вместо хлопка положи руки на колени."
+      },
+      {
+        emoji: "🐢",
+        task: "Двигайся быстро!",
+        hint: "Двигайся медленно."
+      },
+      {
+        emoji: "🤫",
+        task: "Произнеси слово громко!",
+        hint: "Произнеси его тихим голосом, не крича."
+      },
+      {
+        emoji: "➡️",
+        task: "Сделай шаг вперёд!",
+        hint: "Сделай шаг назад, если это безопасно."
+      }
+    ];
+
+    let current = 0;
+    let hintVisible = true;
+
+    const emoji = document.getElementById("emoji");
+    const task = document.getElementById("task");
+    const hint = document.getElementById("hint");
+    const counter = document.getElementById("counter");
+    const toggle = document.getElementById("toggle");
+    const next = document.getElementById("next");
+
+    function showTask() {
+      const item = tasks[current];
+
+      emoji.textContent = item.emoji;
+      task.textContent = item.task;
+      hint.textContent = "Наоборот: " + item.hint;
+      hint.style.display = hintVisible ? "block" : "none";
+
+      counter.textContent =
+        "Задание " + (current + 1) +
+        " из " + tasks.length;
+
+      toggle.textContent = hintVisible
+        ? "Скрыть подсказку"
+        : "Показать подсказку";
+
+      next.textContent =
+        current === tasks.length - 1
+          ? "Начать сначала ↻"
+          : "Следующее задание →";
+    }
+
+    next.addEventListener("click", function () {
+      current = (current + 1) % tasks.length;
+      showTask();
+    });
+
+    toggle.addEventListener("click", function () {
+      hintVisible = !hintVisible;
+      showTask();
+    });
+
+    showTask();
+  </script>
+</body>
+</html>
